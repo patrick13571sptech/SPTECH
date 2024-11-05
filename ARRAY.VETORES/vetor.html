@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class=""></div>
+
+    Nome: <input type="text" id="input_nome" /> <br />
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="ver_detalhes()">Ver Detalhes</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+
+<script>
+  var lista_nomes = [];
+
+  function cadastrar() {
+    var nome = input_nome.value;
+
+    lista_nomes.push(nome);
+
+    console.log(lista_nomes);
+    console.log(`${lista_nomes}`);
+
+    div_mensagem.innerHTML += `${lista_nomes} <br>`;
+  }
+
+  function pesquisar() {
+    var nome = input_nome.value;
+
+    var incluso = lista_nomes.includes(nome);
+
+    if (incluso) {
+      div_mensagem.innerHTML = `O nome ${nome} existe na lista`;
+    } else {
+      div_mensagem.innerHTML = `
+                <b style="color: red">
+                    O nome ${nome} não existe na lista
+                </b>
+            `;
+    }
+
+    var teste = "TESTE";
+    teste.includes("E");
+    teste.indexOf("E") >= 0;
+  }
+
+  var nomes = ["jp", "joão"];
+  var commits = [0, 123];
+
+  console.log(`Nome: ${nomes[0]}`);
+  console.log(`Commits: ${commits[0]}`);
+
+  var valor = 0;
+
+  function handler() {
+    function teste() {
+      valor = 100;
+    }
+    function teste2() {
+      alert(valor);
+    }
+    teste();
+    teste2();
+  }
+
+  function ver_detalhes() {
+    var primeiro_item = lista_nomes[0];
+    var terceiro_item = lista_nomes[2];
+    var ultimo_item = lista_nomes[lista_nomes.length - 1];
+
+    div_mensagem.innerHTML = `
+            Primeira posição:  ${primeiro_item}    <br>
+            Terceira posição:  ${terceiro_item}    <br>
+            Última posição:    ${ultimo_item}    <br>
+        `;
+  }
+</script>

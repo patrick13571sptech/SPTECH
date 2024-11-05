@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Destino de viagem: <input type="text" id="input_destino" /> <br />
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="primeira_viagem()">Primeira Viagem</button>
+    <button onclick="terceira_viagem()">Terceira Viagem</button>
+    <button onclick="ultima_viagem()">Última Viagem</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+
+<script>
+  var lista_destinos = []; // lista global, que começa vazia e pode ser manipulada por qualquer função
+  var tamanho_lista = lista_destinos.length; // variável que representa o tamanho da lista
+
+
+  function adicionar() {
+    var destino = input_destino.value;
+    lista_destinos.push(destino); // adiciona um novo item na lista
+    tamanho_lista = lista.length; // atualiza a variável após adicionar o item na lista
+  }
+
+  function primeira_viagem() {
+    // se o tamanho da lista for maior que 0, significa que há pelo menos 1 viagem
+    if (tamanho_lista > 0) {
+      div_mensagem.innerHTML = lista_destinos[0]; // acessa a primeira posição da lista
+    } else {
+      div_mensagem.innerHTML = "Ainda não viajou";
+    }
+  }
+
+
+  function terceira_viagem() {
+    // se o tamanho da lista for maior que 2, significa que há uma 3ª viagem
+    if (tamanho_lista > 2) {
+      div_mensagem.innerHTML = lista_destinos[2]; // acessa a terceira posição da lista
+    } else {
+      div_mensagem.innerHTML = "Ainda não fez uma terceira viagem";
+    }
+  }
+
+  
+  function ultima_viagem() {
+    // se o tamanho da lista for maior que 0, significa que há pelo menos 1 viagem
+    if (tamanho_lista > 0) {
+      div_mensagem.innerHTML = lista_destinos[tamanho_lista - 1]; // acessa a ÚLTIMA posição da lista com base no seu próprio tamanho 
+    } else {
+      div_mensagem.innerHTML = "Ainda não viajou";
+    }
+  }
+</script>

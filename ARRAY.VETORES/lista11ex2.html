@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Destino de viagem: <input type="text" id="ipt_destino"><br>
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="primeiraviagem()">Primeira Viagem</button>
+    <button onclick="terceiraviagem()">Terceira Viagem</button>
+    <button onclick="ultimaviagem()">Ultima Viagem</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var lista_destinos = [];
+    var mensagem = "";
+
+    function adicionar(){
+        var destino = ipt_destino.value;
+        lista_destinos.push(destino);
+    }
+    function primeiraviagem(){
+            
+
+        if (lista_destinos.length >= 0){
+            div_mensagem.innerHTML = lista_destinos[0]
+        } else {
+         
+            div_mensagem.innerHTML =`Ainda não viajou!`
+        }
+      
+    }
+    function terceiraviagem() {
+        
+
+        if (lista_destinos.length > 2){
+            div_mensagem.innerHTML += lista_destinos[2]
+        } else {
+        
+            div_mensagem.innerHTML =`Ainda não fez uma 3° viagem!`
+        }   
+       
+    }
+
+    function ultimaviagem(){
+        
+        var empacotar_lista = lista_destinos.length;
+
+        if(empacotar_lista > 0){
+            div_mensagem.innerHTML = lista_destinos[empacotar_lista -1]
+        } else {
+            
+            div_mensagem.innerHTML = `Ainda não viajou.`
+        }
+       
+    }
+</script>

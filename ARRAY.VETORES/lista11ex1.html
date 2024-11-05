@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 exercício 1</title>
+</head>
+<body>
+    Nome da fruta: <input type="text" id="ipt_fruta"><br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var lista_frutas = ['goiaba','mamão','hepaminondas'];
+
+    function pesquisar(){
+        var nome_fruta = ipt_fruta.value;
+        var nome_fruta_qa = nome_fruta.toLowerCase();
+        var mensagem = "";
+
+        if (nome_fruta_qa == 'goiaba' || nome_fruta_qa == 'mamão' || nome_fruta_qa == 'hepaminondas'){
+            mensagem += `A fruta ${nome_fruta_qa} existe na lista!`
+        } else {
+            mensagem += `A fruta ${nome_fruta_qa} NÃO existe na lista.`
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

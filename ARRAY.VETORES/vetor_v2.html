@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Fruta: <input type="text" id="input_fruta" /> <br />
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="verificar()">Verificar Se Existe</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  var lista_frutas = []; // inicia uma lista vazia, com uma variável global
+  // sendo global, preserva o valor da lista mesmo que invoque a função várias vezes
+
+  function adicionar() {
+    var fruta = input_fruta.value; // armazena a fruta digitada pelo usuário
+    var tamanho_lista = lista_frutas.length; // armazena a quantidade de elementos da lista
+
+    // verifica se a lista não chegou a 10 elementos
+    if (tamanho_lista < 10) {
+      lista_frutas.push(fruta); // adiciona a fruta na lista
+
+      div_mensagem.innerHTML = lista_frutas; // exibe a lista com a formatação padrão de vetores
+    } else {
+      alert("A lista já está cheia");
+      console.warn("A lista já está cheia"); // exibe a informação no console como aviso
+    }
+  }
+
+  function verificar() {
+    var fruta = input_fruta.value; // armazena a fruta digitada pelo usuário
+
+    var incluso = lista_frutas.includes(fruta); // verifica se a fruta está incluida/existe na lista, armazenando TRUE ou FALSE
+
+    // verifica se a validação do "includes" retorna "true", sem a necessidade de "incluso == true" para evitar redundância
+    if (incluso) {
+      div_mensagem.innerHTML = `A fruta ${fruta} existe na lista`;
+    } else {
+      div_mensagem.innerHTML = `A fruta ${fruta} NÃO existe na lista`;
+    }
+  }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 11 exercício 3</title>
+</head>
+<body>
+    Bairros que morei: <input type="text" id="ipt_bairro">
+    <button onclick="cadastrar()">Cadastrar Bairro:</button><br><br>
+
+    Local que morou: <input type="number" id="ipt_local">
+    <button onclick="relembrar()">Relembrar Moradia:</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+        var historico_bairro = [];
+
+        function cadastrar(){
+            var bairro = ipt_bairro.value;
+            historico_bairro.push(bairro);
+        }
+
+        function relembrar(){
+            var numero = Number(ipt_local.value) - 1;
+
+            if (numero >= 0 && numero <= historico_bairro.length){
+                div_mensagem.innerHTML = historico_bairro[numero]
+            } else {
+                div_mensagem.innerHTML = "Não morou em nenhum bairro!"
+            }
+        }
+</script>
